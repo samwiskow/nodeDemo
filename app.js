@@ -46,6 +46,7 @@ con.connect(function(err) {
 	}
 	console.log('Connected!');
 });
+
 let tableArr = [];
 let columnArr = [];
 

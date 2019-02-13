@@ -14,7 +14,7 @@ COPY --chown=node:node . .
 
 USER node
 
-EXPOSE 5000
+EXPOSE 5000 3000
 
 ENV PORT 5000
 
