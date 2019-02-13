@@ -1,0 +1,57 @@
+//extends index
+block toolbox
+    xml(id="toolbox", style="display: none")
+        <category name="Statements" colour="#5ba5a5">
+            <block type="block_select"></block>
+            <block type="block_select_join"></block>
+            <block type="block_where"></block>
+            <block type="block_orderby"></block>
+            <block type="block_having"></block>
+            <block type="block_groupby"></block>
+        </category>
+
+        <category name="Tables & Columns" colour="#03A9F4">
+            <block type="block_tableselectdd">
+                <field name="NAME"></field>
+            </block>
+            <block type="block_columnselectdd">
+                <field name="NAME">*</field>
+            </block>
+            <block type="block_columnaggdd">
+                <field name="NAME"></field>
+            </block>
+            <block type="block_textinput">
+                <field name="NAME"></field>
+            </block>
+        </category>
+
+        <category name="Logic" colour="#a55b5b">
+            <block type="block_textselect">
+                <field name="NAME">*</field>
+            </block>
+            //<block type="logic_compare">
+            //    <field name="OP">EQ</field>
+            //</block>
+            <block type="block_text_comparison">
+                <field name="NAME">like</field>
+            </block>
+            <block type="block_join_condition"></block>
+            <block type="block_join_tables">
+                <field name="NAME"></field>
+            </block>
+        </category>
+
+        <category name="Inputs" colour="#805ba5">
+            <block type="math_number">
+                <field name="NUM">0</field>
+            </block>
+            <block type="text">
+                <field name="TEXT"></field>
+            </block>
+            <block type="logic_boolean">
+                <field name="BOOL">TRUE</field>
+            </block>
+            //<block type="logic_compare">
+            //    <field name="OP">EQ</field>
+            //</block>
+        </category>
