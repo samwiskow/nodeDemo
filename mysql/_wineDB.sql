@@ -2,9 +2,9 @@ CREATE DATABASE  IF NOT EXISTS `SQLBlocks` /*!40100 DEFAULT CHARACTER SET utf8mb
 USE `SQLBlocks`;
 -- MySQL dump 10.13  Distrib 8.0.14, for macos10.14 (x86_64)
 --
--- Host: localhost    Database: SQLBlocks
+-- Host: 127.0.0.1    Database: SQLBlocks
 -- ------------------------------------------------------
--- Server version	8.0.14
+-- Server version	8.0.15
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -18,52 +18,54 @@ USE `SQLBlocks`;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `list`
+-- Table structure for table `appellations`
 --
 
-DROP TABLE IF EXISTS `list`;
+DROP TABLE IF EXISTS `appellations`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
  SET character_set_client = utf8mb4 ;
-CREATE TABLE `list` (
-  `LastName` text,
-  `FirstName` text,
-  `Grade` int(11) DEFAULT NULL,
-  `Classroom` int(11) DEFAULT NULL
+CREATE TABLE `appellations` (
+  `No` int(11) DEFAULT NULL,
+  `Appelation` text,
+  `County` text,
+  `State` text,
+  `Area` text,
+  `isAVA` text
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `list`
+-- Dumping data for table `appellations`
 --
 
-LOCK TABLES `list` WRITE;
-/*!40000 ALTER TABLE `list` DISABLE KEYS */;
-INSERT INTO `list` VALUES ('CAR','MAUDE',2,101),('KRISTENSEN','STORMY',6,112),('VANDERWOUDE','SHERWOOD',3,107),('NOGODA','ISMAEL',0,105),('DANESE','JANEE',4,111),('AMY','PATRINA',1,102),('PREHM','SHANEL',0,104),('GRUNIN','EMILE',5,109),('GELL','TAMI',0,104),('MADLOCK','RAY',4,110),('SUDA','DARLEEN',4,110),('DROP','SHERMAN',0,104),('PINNELL','ROBBY',3,107),('BROMLEY','EVELINA',1,103),('YUEN','ANIKA',1,103),('BUSTILLOS','HILMA',0,106),('GOODNOE','GAYLE',4,111),('BALBOA','MEL',1,103),('BARTKUS','REYNALDO',1,102),('GROENEWEG','CRYSTA',3,107),('HOUTCHENS','THEO',0,106),('GERSTEIN','AL',5,109),('MACIAG','CHET',5,109),('SAADE','TOBIE',4,110),('BRINE','FRANKLYN',0,106),('HANNEMANN','CHANTAL',1,102),('BYRUM','BENNIE',0,105),('NETZEL','JODY',0,105),('VANVLIET','COLLIN',0,106),('HONES','GUILLERMINA',0,104),('FLACHS','JEFFRY',5,109),('GRABILL','JULIENNE',0,106),('AREHART','VERTIE',3,107),('RUNKLE','MARCUS',1,102),('MOWATT','KITTIE',0,105),('HOOSOCK','LANCE',1,103),('LEAPER','ADRIAN',4,111),('PASSEY','RAYLENE',4,110),('NAKAHARA','SHERON',0,105),('STIRE','SHIRLEY',6,112),('RODDEY','CYRUS',4,110),('CRANMER','CAREY',5,109),('SCHUTZE','LANELLE',5,109),('FULVIO','ELTON',4,111),('HOESCHEN','LYNNETTE',4,108),('SOLOMAN','BRODERICK',0,106),('LAPLANT','SUMMER',2,101),('LUSKEY','BRITT',4,108),('JAGNEAUX','ELVIRA',6,112),('BIBB','SHANAE',1,103),('WIRTZFELD','DELORAS',0,106),('RANSLER','RODGER',1,102),('NABOZNY','CHRISSY',3,107),('ATWOOD','BETHEL',5,109),('CHIARAMONTE','NOVELLA',2,101),('TRAYWICK','KERI',1,102),('BRIGHTBILL','ANTONY',1,102),('HUANG','TAWANNA',5,109),('SANTORY','JORDON',3,107),('LARKINS','GAYLE',4,110);
-/*!40000 ALTER TABLE `list` ENABLE KEYS */;
+LOCK TABLES `appellations` WRITE;
+/*!40000 ALTER TABLE `appellations` DISABLE KEYS */;
+INSERT INTO `appellations` VALUES (1,'Alexander Valley','Sonoma','California','North Coast','Yes'),(2,'Amador County','Amador','California','Sierra Foothills','No'),(3,'Amador-Mendocino-Sonoma Counties','N/A','California','N/A','No'),(4,'Anderson Valley','Mendocino','California','North Coast','Yes'),(5,'Arroyo Grande Valley','San Luis Obispo','California','Central Coast','Yes'),(6,'Atlas Peak','Napa','California','North Coast','Yes'),(7,'Bennett Valley','Sonoma','California','North Coast','Yes'),(8,'Calaveras County','Calaveras','California','Sierra Foothills','No'),(9,'California','N/A','California','California','No'),(10,'Carneros','Napa','California','North Coast','Yes'),(11,'Central Coast','N/A','California','Central Coast','Yes'),(12,'Chalk Hill','Sonoma','California','North Coast','Yes'),(13,'Chalone','Monterey','California','Central Coast','Yes'),(14,'Contra Costa County','Contra Costa','California','Santa Cruz Mountains','No'),(15,'Dry Creek Valley','Sonoma','California','North Coast','Yes'),(16,'Edna Valley','San Luis Obispo','California','Central Coast','Yes'),(17,'Fiddletown','Amador','California','Sierra Foothills','Yes'),(18,'Green Valley of Russian River Valley','Sonoma','California','North Coast','Yes'),(19,'Guenoc Valley','Lake','California','North Coast','Yes'),(20,'Happy Canyon of Santa Barbara','Santa Barbara','California','Central Coast','Yes'),(21,'Howell Mountain','Napa','California','North Coast','Yes'),(22,'Knights Valley','Sonoma','California','North Coast','Yes'),(23,'Lake County','Lake','California','North Coast','No'),(24,'Livermore Valley','Alameda','California','Santa Cruz Mountains','Yes'),(25,'Lodi','San Joaquin','California','Central Valley','Yes'),(26,'Mendocino County','Mendocino','California','North Coast','No'),(27,'Monterey County','Monterey','California','Central Coast','No'),(28,'Mount Harlan','San Benito','California','Central Coast','Yes'),(29,'Mount Vedeer','Napa','California','North Coast','Yes'),(30,'Napa Valley','Napa','California','North Coast','Yes'),(31,'Napa-Sonoma counties','N/A','California','North Coast','No'),(32,'North Coast','N/A','California','North Coast','Yes'),(33,'Oakville','Napa','California','North Coast','Yes'),(34,'Paso Robles','San Luis Obispo','California','Central Coast','Yes'),(35,'Red Hills Lake County','Lake','California','North Coast','Yes'),(36,'Rockpile','Sonoma','California','North Coast','Yes'),(37,'Russian River Valley','Sonoma','California','North Coast','Yes'),(38,'Rutherford','Napa','California','North Coast','Yes'),(39,'San Luis Obispo County','San Luis Obispo','California','Central Coast','No'),(40,'Santa Barbara County','Santa Barbara','California','Central Coast','No'),(41,'Santa Cruz Mountains','N/A','California','Santa Cruz Mountains','Yes'),(42,'Santa Lucia Highlands','Monterey','California','Central Coast','Yes'),(43,'Santa Maria Valley','Santa Barbara','California','Central Coast','Yes'),(44,'Santa Ynez Valley','Santa Barbara','California','Central Coast','Yes'),(45,'Shenandoah Valley','Amador','California','Sierra Foothills','Yes'),(46,'Sierra Foothills','N/A','California','Sierra Foothills','Yes'),(47,'Solano County','Solano','California','North Coast','No'),(48,'Sonoma Coast','Sonoma','California','North Coast','Yes'),(49,'Sonoma County','Sonoma','California','North Coast','No'),(50,'Sonoma Valley','Sonoma','California','North Coast','Yes'),(51,'Sonoma-Lake Counties','N/A','California','North Coast','Yes'),(52,'Spring Mountain District','Napa','California','North Coast','Yes'),(53,'St. Helena','Napa','California','North Coast','Yes'),(54,'Sta. Rita Hills','Santa Barbara','California','Central Coast','Yes'),(55,'Stags Leap District','Napa','California','North Coast','Yes'),(56,'Yolo County','Yolo','California','Central Valley','No'),(57,'Yountville','Napa','California','North Coast','Yes');
+/*!40000 ALTER TABLE `appellations` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
--- Table structure for table `teachers`
+-- Table structure for table `grapes`
 --
 
-DROP TABLE IF EXISTS `teachers`;
+DROP TABLE IF EXISTS `grapes`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
  SET character_set_client = utf8mb4 ;
-CREATE TABLE `teachers` (
-  `LastName` text,
-  `FirstName` text,
-  `Classroom` int(11) DEFAULT NULL
+CREATE TABLE `grapes` (
+  `ID` int(11) DEFAULT NULL,
+  `Grape` text,
+  `Color` text
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `teachers`
+-- Dumping data for table `grapes`
 --
 
-LOCK TABLES `teachers` WRITE;
-/*!40000 ALTER TABLE `teachers` DISABLE KEYS */;
-INSERT INTO `teachers` VALUES ('MACROSTIE','MIN',101),('COVIN','JEROME',102),('MOYER','OTHA',103),('NIBLER','JERLENE',104),('MARROTTE','KIRK',105),('TARRING','LEIA',106),('URSERY','CHARMAINE',107),('ONDERSMA','LORIA',108),('KAWA','GORDON',109),('SUMPTION','GEORGETTA',110),('KRIENER','BILLIE',111),('SUGAI','ALFREDA',112);
-/*!40000 ALTER TABLE `teachers` ENABLE KEYS */;
+LOCK TABLES `grapes` WRITE;
+/*!40000 ALTER TABLE `grapes` DISABLE KEYS */;
+INSERT INTO `grapes` VALUES (1,'Barbera','Red'),(2,'Cabernet Franc','Red'),(3,'Cabernet Sauvingnon','Red'),(4,'Chardonnay','White'),(5,'Grenache','Red'),(6,'Malbec','Red'),(7,'Marsanne','White'),(8,'Merlot','Red'),(9,'Mourvedre','Red'),(10,'Muscat','White'),(11,'Petite Sirah','Red'),(12,'Pinot Noir','Red'),(13,'Riesling','White'),(14,'Roussanne','White'),(15,'Sangiovese','Red'),(16,'Sauvignon Blanc','White'),(17,'Syrah','Red'),(18,'Tempranillo','Red'),(19,'Viognier','White'),(20,'Zinfandel','Red');
+/*!40000 ALTER TABLE `grapes` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -107,4 +109,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-02-12 13:24:33
+-- Dump completed on 2019-02-15 17:17:41

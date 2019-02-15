@@ -1,0 +1,92 @@
+extends layout
+
+block head
+
+
+    script(src = "https://code.jquery.com/jquery-3.3.1.min.js",
+        integrity = "sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=",
+        crossorigin = "anonymous")
+
+block content
+
+    div#mainContent
+        div(style="margin:1em; padding:1em; height:10%;")
+            h2 Block Reference Table
+            p On this page you wil find a summary of the blocks and how they should be used in queries in the two tables below
+        </br></br></br></br>
+        div#infoTables
+            table#helpTable
+                tr
+                    th(style="width:20%") Block
+                    th(style="width:20%") Name
+                    th(style="width:60%") Description
+                tr
+                    td
+                        img(src="/images/colSelectMult.png" alt="Column Select Block Multiple")
+                    td Column Select Block (Multiple Input)
+                    td This block should be used to select column(s) in the select parent block
+                tr
+                    td
+                        img(src="/images/colSelectSingle.png" alt="Column Select Block Single")
+                    td Column Select Block (Single Input)
+                    td This block should be used to select a column in a comparison block
+                tr
+                    td
+                        img(src="/images/aggColSelect.png" alt="Column Select Block Aggregate")
+                        td Column Select Block (Aggregate)
+                        td This block should be used to select aggregate column(s) in the select parent block
+                tr
+                    td
+                        img(src="/images/tableSelect.png" alt="Table Select")
+                    td Table Select Block
+                    td This block should be used to select the table in the select parent block and logic blocks
+                tr
+                    td
+                        img(src="/images/operator.png" alt="Operator Block")
+                    td Operator Block
+                    td This block is used to combine conditions in where clauses as shown in the table below
+                tr
+                    td
+                        img(src="/images/whereCondition.png" alt="Comparison Block")
+                    td Comparison Block
+                    td This block is used to compare two values - typically it will take a Column Select block and an input block to compare the column value against
+                tr
+                    td
+                        img(src="/images/joinCon.png" alt="Join condition Block")
+                    td Join Condition Block
+                    td This block is used in the join condition when joining two tables together - it follows the standard sql syntax of join 'table2' on 'table1.commonColumn' = 'table2.commonColumn'
+                tr
+                    td
+                        img(src="/images/joinSelect.png" alt="Join Select Block")
+                    td Column Select Block (Use when performing a join query)
+                    td This block must be used in the select block to choose columns from specific tables - particularly where the table share the same column names
+
+            h2 Query Reference Table
+            p(style="margin:1em; padding:1em;") </br></br></br> The table below shows some example queries with their respective SQL and table output - the data in the table may be subject to change </br></br></br>
+
+            table#exampleTable
+                tr
+                    th Example Block Query
+                    th Example Block SQL
+                    th Example Expected Output
+                tr
+                    td
+                        img(src="/images/Simple Query.png" alt="Simple Query")
+                    td
+                        img(src="/images/Simple Query 2.png" alt="Simple Query SQL")
+                    td
+                        img(src="/images/Simple Query 3.png" alt="Simple Query Result")
+                tr
+                    td
+                        img(src="/images/Where Query.png" alt="Where Query")
+                    td
+                        img(src="/images/Where Query 2.png" alt="Where Query SQL")
+                    td
+                        img(src="/images/Where Query 3.png" alt="Where Query Result")
+                tr
+                    td
+                        img(src="/images/Example Query.png" alt="Example Query")
+                    td
+                        img(src="/images/Example Query 2.png" alt="Example Query SQL")
+                    td
+                        img(src="/images/Example Query 3.png" alt="Example Query Result")

@@ -1,0 +1,22 @@
+extends layout
+
+block head
+
+
+    script(src = "https://code.jquery.com/jquery-3.3.1.min.js",
+        integrity = "sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=",
+        crossorigin = "anonymous")
+
+block content
+
+    div#mainContent
+        div(style="margin:1em; padding:1em; height:10%;")
+            h2 Database Schema Reference
+            p Please find the database schema below
+        </br></br></br></br>
+        div#schemaTables
+
+            if "#{tables}".includes('cars')
+                img(src="/images/carSchema.png" alt="Car Schema")
+            else
+                img(src="/images/wineSchema.png" alt="Wine Schema")

@@ -134,8 +134,9 @@ Blockly.JavaScript['block_select_join'] = function(block) {
 
 	var tablefiltered = statements_inputjoin.filter(Boolean);
 	var tables = ' JOIN ';
-	for (var i=0; i < tablefiltered.length; i++){
-		i == 0? tables += tablefiltered[i] : tables += ' JOIN ' + tablefiltered[i];
+	console.log(tablefiltered.length);
+	for (var j=0; j < tablefiltered.length; j++){
+		j == 0? tables += tablefiltered[j] : tables += ' JOIN ' + tablefiltered[j];
 	}
 
 	var code = 'SELECT ' + columns + ' FROM ' + value_inputfrom.replace(/()/g,'') + tables;
@@ -149,7 +150,7 @@ Blockly.JavaScript['block_join_condition'] = function(block) {
 	var value_table2 = Blockly.JavaScript.valueToCode(block, 'table2', Blockly.JavaScript.ORDER_ATOMIC);
 	var value_col2 = Blockly.JavaScript.valueToCode(block, 'col2', Blockly.JavaScript.ORDER_ATOMIC);
 
-	var code = value_table + ' ON ' + value_table1 + '.' + value_col1 + ' = ' + value_table2 + '.' + value_col2 ;
+	var code = value_table + ' ON ' + value_table1 + '.' + value_col1 + ' = ' + value_table2 + '.' + value_col2 + ',';
 
 	return code;
 };

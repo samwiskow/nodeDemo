@@ -93,9 +93,12 @@ app.get('/', (req,res) => {
 	res.render('index', {title: 'SQL Scratch', tables: tableArr, columns: columnArr});
 });
 
-app.get('/shout', (req,res) => {
-	let input = req.query.text;
-	res.json({result : input.toUpperCase()});
+app.get('/help', (req,res) => {
+	res.render('help', {title: 'SQL Scratch', tables: tableArr, columns: columnArr});
+});
+
+app.get('/schema', (req,res) => {
+	res.render('schema', {title: 'SQL Scratch', tables: tableArr, columns: columnArr});
 });
 
 app.get('/query', (req,res) => {

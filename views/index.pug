@@ -101,11 +101,12 @@ block content
                 p#textarea
                 button#queryBtn(type='button' onclick='runQuery()') Run SQL Query
                 p#statementTab(style="margin=1em")
-            div#topright Results
+            div#topright
+                h3 Results
                 table#resultsTable(style="margin=1em")
 
         //p Copyrighted by Sam Wiskow
-    div#blocklyDiv(style="position: absolute")
+    div#blocklyDiv(style="position: absolute; height:1%; width:1%;")
 
     script.
         // var workspace = Blockly.inject('blocklyDiv',
