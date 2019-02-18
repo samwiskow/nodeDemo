@@ -90,15 +90,15 @@ app.use(express.static(path.join(__dirname, 'public')));
 // app.use('/users', usersRouter);
 
 app.get('/', (req,res) => {
-	res.render('index', {title: 'SQL Scratch', tables: tableArr, columns: columnArr});
+	res.render('index', {title: 'SQL Blocks', tables: tableArr, columns: columnArr});
 });
 
 app.get('/help', (req,res) => {
-	res.render('help', {title: 'SQL Scratch', tables: tableArr, columns: columnArr});
+	res.render('help', {title: 'SQL Blocks', tables: tableArr, columns: columnArr});
 });
 
 app.get('/schema', (req,res) => {
-	res.render('schema', {title: 'SQL Scratch', tables: tableArr, columns: columnArr});
+	res.render('schema', {title: 'SQL Blocks', tables: tableArr, columns: columnArr});
 });
 
 app.get('/query', (req,res) => {

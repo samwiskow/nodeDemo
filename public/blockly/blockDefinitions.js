@@ -15,11 +15,12 @@ const blocksJson = [
 		'args0': [
 			{
 				'type': 'input_statement',
-				'name': 'NAME'
+				'name': 'NAME',
+				'check': 'logic'
 			}
 		],
-		'previousStatement': 'select',
-		'nextStatement': null,
+		'previousStatement': 'statement',
+		'nextStatement': 'statement',
 		'colour': 120,
 		'tooltip': '',
 		'helpUrl': ''
@@ -30,15 +31,16 @@ const blocksJson = [
 		'args0': [
 			{
 				'type': 'input_statement',
-				'name': 'inputSelect'
+				'name': 'inputSelect',
+				'check': 'column'
 			},
 			{
 				'type': 'input_value',
 				'name': 'inputFrom',
-				'check': 'String'
+				'check': 'table'
 			}
 		],
-		'nextStatement': 'select',
+		'nextStatement': 'statement',
 		'colour': 230,
 		'tooltip': 'This is the basis for the SQL Statement',
 		'helpUrl': ''
@@ -93,8 +95,8 @@ const blocksJson = [
 				'name': 'NAMEL'
 			}
 		],
-		'previousStatement': null,
-		'nextStatement': null,
+		'previousStatement': 'logic',
+		'nextStatement': 'logic',
 		'colour': 230,
 		'tooltip': '',
 		'helpUrl': ''
@@ -133,44 +135,49 @@ const blocksJson = [
 				'name': 'NAME'
 			}
 		],
-		'previousStatement': null,
-		'nextStatement': null,
+		'previousStatement': 'logic',
+		'nextStatement': 'logic',
 		'colour': 230,
 		'tooltip': '',
 		'helpUrl': ''
 	},
-	{
-		'type': 'block_join',
-		'message0': 'JOIN %1',
-		'args0': [
-			{
-				'type': 'input_statement',
-				'name': 'NAME'
-			}
-		],
-		'previousStatement': [
-			'select',
-			'String'
-		],
-		'nextStatement': 'String',
-		'colour': 260,
-		'tooltip': '',
-		'helpUrl': ''
-	},
+	// {
+	// 	'type': 'block_join',
+	// 	'message0': 'JOIN %1',
+	// 	'args0': [
+	// 		{
+	// 			'type': 'input_statement',
+	// 			'name': 'NAME'
+	// 		}
+	// 	],
+	// 	'previousStatement': [
+	// 		'select',
+	// 		'String'
+	// 	],
+	// 	'nextStatement': 'String',
+	// 	'colour': 260,
+	// 	'tooltip': '',
+	// 	'helpUrl': ''
+	// },
 	{
 		'type': 'block_orderby',
-		'message0': 'ORDER BY %1',
+		'message0': 'ORDER BY %1 ASC %2',
 		'args0': [
 			{
 				'type': 'input_statement',
-				'name': 'NAME'
+				'name': 'NAME',
+				'check': 'column'
+			},
+			{
+				'type': 'field_checkbox',
+				'name': 'NAME',
+				'checked': true
 			}
 		],
 		'previousStatement': [
 			'select',
-			'String'
+			'statement'
 		],
-		'nextStatement': 'String',
 		'colour': 210,
 		'tooltip': '',
 		'helpUrl': ''
@@ -181,14 +188,15 @@ const blocksJson = [
 		'args0': [
 			{
 				'type': 'input_statement',
-				'name': 'NAME'
+				'name': 'NAME',
+				'check': 'column'
 			}
 		],
 		'previousStatement': [
 			'select',
-			'String'
+			'statement'
 		],
-		'nextStatement': 'String',
+		'nextStatement': 'statement',
 		'colour': 65,
 		'tooltip': '',
 		'helpUrl': ''
@@ -199,14 +207,15 @@ const blocksJson = [
 		'args0': [
 			{
 				'type': 'input_statement',
-				'name': 'NAME'
+				'name': 'NAME',
+				'check': 'logic'
 			}
 		],
 		'previousStatement': [
 			'select',
-			'String'
+			'statement'
 		],
-		'nextStatement': 'String',
+		'nextStatement': 'statement',
 		'colour': 345,
 		'tooltip': '',
 		'helpUrl': ''
@@ -217,19 +226,21 @@ const blocksJson = [
 		'args0': [
 			{
 				'type': 'input_statement',
-				'name': 'inputSelect'
+				'name': 'inputSelect',
+				'check': 'column'
 			},
 			{
 				'type': 'input_value',
 				'name': 'inputFrom',
-				'check': 'String'
+				'check': 'table'
 			},
 			{
 				'type': 'input_statement',
-				'name': 'inputJoin'
+				'name': 'inputJoin',
+				'check': 'joinCon'
 			}
 		],
-		'nextStatement': 'select',
+		'nextStatement': 'statement',
 		'colour': 230,
 		'tooltip': 'This is the basis for the SQL Statement',
 		'helpUrl': ''
@@ -271,8 +282,8 @@ const blocksJson = [
 				'name': 'col2'
 			}
 		],
-		'previousStatement': null,
-		'nextStatement': null,
+		'previousStatement': 'joinCon',
+		'nextStatement': 'joinCon',
 		'colour': 230,
 		'tooltip': '',
 		'helpUrl': ''
@@ -282,8 +293,8 @@ Blockly.Blocks['block_columnselectdd'] = {
 	init: function() {
 		this.appendDummyInput()
 			.appendField(new Blockly.FieldDropdown(columnDd), 'NAME');
-		this.setPreviousStatement(true, null);
-		this.setNextStatement(true, null);
+		this.setPreviousStatement(true, 'column');
+		this.setNextStatement(true, 'column');
 		this.setColour(70);
 		this.setTooltip('');
 		this.setHelpUrl('');
@@ -294,7 +305,7 @@ Blockly.Blocks['block_tableselectdd'] = {
 	init: function() {
 		this.appendDummyInput()
 			.appendField(new Blockly.FieldDropdown(tableDd), 'NAME');
-		this.setOutput(true, null);
+		this.setOutput(true, 'table');
 		this.setColour(180);
 		this.setTooltip('');
 		this.setHelpUrl('');
@@ -308,8 +319,8 @@ Blockly.Blocks['block_columnaggdd'] = {
 			.appendField(new Blockly.FieldDropdown(aggregates), 'AGG');
 		this.appendDummyInput()
 			.appendField(new Blockly.FieldDropdown(columnDd), 'COL');
-		this.setPreviousStatement(true, null);
-		this.setNextStatement(true, null);
+		this.setPreviousStatement(true, 'column');
+		this.setNextStatement(true, 'column');
 		this.setColour(70);
 		this.setTooltip('');
 		this.setHelpUrl('');
@@ -321,8 +332,8 @@ Blockly.Blocks['block_textselect'] = {
 		let statements = [['AND','AND'],['OR','OR']];
 		this.appendDummyInput()
 			.appendField(new Blockly.FieldDropdown(statements), 'ST');
-		this.setPreviousStatement(true, null);
-		this.setNextStatement(true, null);
+		this.setPreviousStatement(true, 'logic');
+		this.setNextStatement(true, 'logic');
 		this.setColour(20);
 		this.setTooltip('');
 		this.setHelpUrl('');
@@ -333,7 +344,7 @@ Blockly.Blocks['block_textinput'] = {
 	init: function() {
 		this.appendDummyInput()
 			.appendField(new Blockly.FieldDropdown(columnDd), 'NAME');
-		this.setOutput(true, null);
+		this.setOutput(true, 'column');
 		this.setColour(70);
 		this.setTooltip('');
 		this.setHelpUrl('');
@@ -346,8 +357,8 @@ Blockly.Blocks['block_join_tables'] = {
 			.appendField(new Blockly.FieldDropdown(tableDd), 'TAB');
 		this.appendDummyInput()
 			.appendField(new Blockly.FieldDropdown(columnDd), 'COL');
-		this.setPreviousStatement(true, null);
-		this.setNextStatement(true, null);
+		this.setPreviousStatement(true, 'columns');
+		this.setNextStatement(true, 'columns');
 		this.setColour(70);
 		this.setTooltip('');
 		this.setHelpUrl('');

@@ -11,9 +11,11 @@ block toolbox
         </category>
 
         <category name="Tables & Columns" colour="#03A9F4">
+            <label text="Tables" web-class="myLabelStyle"></label>
             <block type="block_tableselectdd">
                 <field name="NAME"></field>
             </block>
+            <label text="Columns" web-class="myLabelStyle"></label>
             <block type="block_columnselectdd">
                 <field name="NAME">*</field>
             </block>
@@ -23,22 +25,21 @@ block toolbox
             <block type="block_textinput">
                 <field name="NAME"></field>
             </block>
-        </category>
-
-        <category name="Logic" colour="#a55b5b">
-            <block type="block_textselect">
-                <field name="NAME">*</field>
-            </block>
-            //<block type="logic_compare">
-            //    <field name="OP">EQ</field>
-            //</block>
-            <block type="block_text_comparison">
-                <field name="NAME">like</field>
-            </block>
-            <block type="block_join_condition"></block>
             <block type="block_join_tables">
                 <field name="NAME"></field>
             </block>
+        </category>
+
+        <category name="Logic" colour="#a55b5b">
+            <label text="Comparison Logic" web-class="myLabelStyle"></label>
+            <block type="block_textselect">
+                <field name="NAME">*</field>
+            </block>
+            <block type="block_text_comparison">
+                <field name="NAME">like</field>
+            </block>
+            <label text="Join Condition" web-class="myLabelStyle"></label>
+            <block type="block_join_condition"></block>
         </category>
 
         <category name="Inputs" colour="#805ba5">
@@ -51,7 +52,9 @@ block toolbox
             <block type="logic_boolean">
                 <field name="BOOL">TRUE</field>
             </block>
-            //<block type="logic_compare">
-            //    <field name="OP">EQ</field>
-            //</block>
         </category>
+    style.
+        .myLabelStyle>.blocklyFlyoutLabelText {
+            font-style: italic;
+            fill: black;
+        }

@@ -45,15 +45,15 @@ function runQuery() {
 	};
 
 	let sql = document.getElementById('textarea').innerHTML;
-	console.log(sql);
+	//console.log(sql);
 	if (new RegExp(/<+|>+|&gt;|&lt;/g).test(sql)){
-		console.log('regex match');
+		//console.log('regex match');
 		xhttp.open('GET', '/query?query=' + encodeURIComponent(document.getElementById('textarea').innerHTML), true);
 		xhttp.send();
 	} else{
 		try {
 			SQLParser.parse(sql);
-			console.log('successfully parsed');
+			//console.log('successfully parsed');
 			xhttp.open('GET', '/query?query=' + encodeURIComponent(document.getElementById('textarea').innerHTML), true);
 			xhttp.send();
 		} catch (err) {

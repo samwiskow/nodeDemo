@@ -1,6 +1,5 @@
 Blockly.JavaScript['block_textselect'] = function(block) {
 	var dropdown_name = block.getFieldValue('ST');
-	// TODO: Assemble JavaScript into code variable.
 	var code = dropdown_name +',' ;
 	return code;
 };
@@ -12,7 +11,6 @@ Blockly.JavaScript['block_where'] = function(block) {
 	for (var i=0; i < filtered.length; i++){
 		i == 0? columns += filtered[i] : columns += ' ' + filtered[i];
 	}
-	// TODO: Assemble JavaScript into code variable.
 	var code = ' WHERE ' + columns;
 	return code;
 };
@@ -34,37 +32,26 @@ Blockly.JavaScript['block_text_comparison'] = function(block) {
 	var value_name = Blockly.JavaScript.valueToCode(block, 'NAME', Blockly.JavaScript.ORDER_ATOMIC);
 	var dropdown_name = block.getFieldValue('NAME');
 	var val_name = Blockly.JavaScript.valueToCode(block, 'NAMEL', Blockly.JavaScript.ORDER_ATOMIC);
-	// TODO: Assemble JavaScript into code variable.
 	var code = value_name + ' ' + dropdown_name + ' ' + val_name + ',' ;
-	return code;
-};
-
-Blockly.JavaScript['block_number_comparison'] = function(block) {
-	var value_name = Blockly.JavaScript.valueToCode(block, 'NAME', Blockly.JavaScript.ORDER_ATOMIC);
-	var dropdown_name = block.getFieldValue('NAME');
-	var value_name = Blockly.JavaScript.valueToCode(block, 'NAME', Blockly.JavaScript.ORDER_ATOMIC);
-	// TODO: Assemble JavaScript into code variable.
-	var code = '...;\n';
 	return code;
 };
 
 Blockly.JavaScript['block_join'] = function(block) {
 	var statements_name = Blockly.JavaScript.statementToCode(block, 'NAME');
-
-	// TODO: Assemble JavaScript into code variable.
 	var code = ' JOIN ' + statements_name;
 	return code;
 };
 
 Blockly.JavaScript['block_orderby'] = function(block) {
 	var statements_name = Blockly.JavaScript.statementToCode(block, 'NAME').trim().split(',');
+	var checkbox_name = block.getFieldValue('NAME') == 'TRUE';
 	var filtered = statements_name.filter(Boolean);
 	var columns = '';
 	for (var i=0; i < filtered.length; i++){
 		i == 0? columns += filtered[i] : columns += ',' + filtered[i];
 	}
-	// TODO: Assemble JavaScript into code variable.
 	var code = ' ORDER BY ' + columns;
+	checkbox_name === true? code += ' ASC' : code += ' DESC';
 	return code;
 };
 
@@ -75,7 +62,6 @@ Blockly.JavaScript['block_groupby'] = function(block) {
 	for (var i=0; i < filtered.length; i++){
 		i == 0? columns += filtered[i] : columns += ',' + filtered[i];
 	}
-	// TODO: Assemble JavaScript into code variable.
 	var code = ' GROUP BY ' + columns;
 	return code;
 };
@@ -87,29 +73,24 @@ Blockly.JavaScript['block_having'] = function(block) {
 	for (var i=0; i < filtered.length; i++){
 		i == 0? columns += filtered[i] : columns += ' ' + filtered[i];
 	}
-	// TODO: Assemble JavaScript into code variable.
 	var code = ' HAVING ' + columns;
 	return code;
 };
 
 Blockly.JavaScript['block_textinput'] = function(block) {
 	var text_name = block.getFieldValue('NAME');
-	// TODO: Assemble JavaScript into code variable.
 	var code = text_name;
-	// TODO: Change ORDER_NONE to the correct strength.
 	return [code, Blockly.JavaScript.ORDER_ATOMIC];
 };
 
 Blockly.JavaScript['block_columnselectdd'] = function(block) {
 	var dropdown_name = block.getFieldValue('NAME');
-	// TODO: Assemble JavaScript into code variable.
 	var code = dropdown_name +',' ;
 	return code;
 };
 
 Blockly.JavaScript['block_tableselectdd'] = function(block) {
 	var dropdown_name = block.getFieldValue('NAME');
-	// TODO: Assemble JavaScript into code variable.
 	var code = dropdown_name;
 	return [code, Blockly.JavaScript.ORDER_ATOMIC];
 };
