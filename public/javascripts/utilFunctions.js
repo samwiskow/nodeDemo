@@ -1,3 +1,4 @@
+// This loads the block query from localstorage
 function loadWorkspace() {
 	var xmlText = localStorage.getItem('blockly.xml');
 	if (xmlText) {
@@ -7,6 +8,7 @@ function loadWorkspace() {
 	}
 }
 
+// This saves the block query to localstorage
 function saveWorkspace() {
 	var xmlDom = Blockly.Xml.workspaceToDom(Blockly.mainWorkspace);
 	var xmlText = Blockly.Xml.domToPrettyText(xmlDom);
@@ -14,6 +16,7 @@ function saveWorkspace() {
 	localStorage.setItem('blockly.xml', xmlText);
 }
 
+// This handles resizing the blockly element of the page if the page is resized
 var onresize = function (e) {
 	// Compute the absolute coordinates and dimensions of blocklyArea.
 	var element = blocklyArea;
@@ -32,6 +35,7 @@ var onresize = function (e) {
 	Blockly.svgResize(workspace);
 };
 
+// This function handles updating various DOM elements when a blockly change event is detected
 function myUpdateFunction(event) {
 	var code = Blockly.JavaScript.workspaceToCode(workspace);
 	var liveSql = document.getElementById('textarea');

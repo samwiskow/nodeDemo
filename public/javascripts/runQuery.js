@@ -46,7 +46,7 @@ function runQuery() {
 
 	let sql = document.getElementById('textarea').innerHTML;
 	//console.log(sql);
-	if (new RegExp(/<+|>+|&gt;|&lt;/g).test(sql)){
+	if (new RegExp(/<+|>+|&gt;|&lt;|(\*)+/g).test(sql)){
 		//console.log('regex match');
 		xhttp.open('GET', '/query?query=' + encodeURIComponent(document.getElementById('textarea').innerHTML), true);
 		xhttp.send();

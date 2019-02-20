@@ -141,24 +141,6 @@ const blocksJson = [
 		'tooltip': '',
 		'helpUrl': ''
 	},
-	// {
-	// 	'type': 'block_join',
-	// 	'message0': 'JOIN %1',
-	// 	'args0': [
-	// 		{
-	// 			'type': 'input_statement',
-	// 			'name': 'NAME'
-	// 		}
-	// 	],
-	// 	'previousStatement': [
-	// 		'select',
-	// 		'String'
-	// 	],
-	// 	'nextStatement': 'String',
-	// 	'colour': 260,
-	// 	'tooltip': '',
-	// 	'helpUrl': ''
-	// },
 	{
 		'type': 'block_orderby',
 		'message0': 'ORDER BY %1 ASC %2',
@@ -251,35 +233,40 @@ const blocksJson = [
 		'args0': [
 			{
 				'type': 'input_value',
-				'name': 'table'
+				'name': 'table',
+				'check': 'table'
 			},
 			{
 				'type': 'input_dummy'
 			},
 			{
 				'type': 'input_value',
-				'name': 'table1'
+				'name': 'table1',
+				'check': 'table'
 			},
 			{
 				'type': 'input_dummy'
 			},
 			{
 				'type': 'input_value',
-				'name': 'col1'
+				'name': 'col1',
+				'check': 'column'
 			},
 			{
 				'type': 'input_dummy'
 			},
 			{
 				'type': 'input_value',
-				'name': 'table2'
+				'name': 'table2',
+				'check': 'table'
 			},
 			{
 				'type': 'input_dummy'
 			},
 			{
 				'type': 'input_value',
-				'name': 'col2'
+				'name': 'col2',
+				'check': 'column'
 			}
 		],
 		'previousStatement': 'joinCon',
@@ -357,8 +344,8 @@ Blockly.Blocks['block_join_tables'] = {
 			.appendField(new Blockly.FieldDropdown(tableDd), 'TAB');
 		this.appendDummyInput()
 			.appendField(new Blockly.FieldDropdown(columnDd), 'COL');
-		this.setPreviousStatement(true, 'columns');
-		this.setNextStatement(true, 'columns');
+		this.setPreviousStatement(true, 'column');
+		this.setNextStatement(true, 'column');
 		this.setColour(70);
 		this.setTooltip('');
 		this.setHelpUrl('');

@@ -9,6 +9,8 @@ const helmet = require('helmet');
 const session = require('express-session');
 
 const app = express();
+
+// Helmet is used here to secure headers & prevent attackers from using common attacks like cross-site scripting (XSS)
 app.use(helmet());
 
 // using the express session middleware
@@ -24,21 +26,16 @@ app.use(session({
 	}
 }));
 
+// Here we supply the config information to connect to the mysql database
 const con = mysql.createConnection({
 	host: 'localhost',
-	//host: '172.17.0.2',
-	//user: "demo",
-	//password: "crackers23",
-	//user: 'test_user',
-	//password: 'test',
 	user: 'blockuser',
 	password: 'bl0cks99',
-	// user: 'root',
-	// password: 'my-secret-pw',
 	port: 4000,
 	database: 'SQLBlocks'
 });
 
+// Connect to the DB
 con.connect(function(err) {
 	if (err) {
 		console.log('error connecting to db!');
@@ -49,7 +46,7 @@ con.connect(function(err) {
 
 let tableArr = [];
 let columnArr = [];
-
+// get the column names from the table schema
 con.query('select distinct Column_Name from information_schema.columns where table_schema = \'SQLBlocks\'',
 	function (err, result, fields) {
 		if (err) {
@@ -63,6 +60,7 @@ con.query('select distinct Column_Name from information_schema.columns where tab
 		}
 	});
 
+// get the table names from the schema
 con.query('select distinct table_name from information_schema.columns where table_schema = \'SQLBlocks\'',
 	function (err, result, fields) {
 		if (err) {
@@ -86,9 +84,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-//app.use('/', indexRouter);
-// app.use('/users', usersRouter);
-
+// The get functions determine what is rendered and sent to the front end based on the request
 app.get('/', (req,res) => {
 	res.render('index', {title: 'SQL Blocks', tables: tableArr, columns: columnArr});
 });
@@ -101,6 +97,7 @@ app.get('/schema', (req,res) => {
 	res.render('schema', {title: 'SQL Blocks', tables: tableArr, columns: columnArr});
 });
 
+// This handles the sql query to the databse
 app.get('/query', (req,res) => {
 	let input = _.unescape(req.query.query);
 	console.log(req.query);
