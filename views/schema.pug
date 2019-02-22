@@ -9,8 +9,6 @@ block head
 
 block content
 
-    script.
-        tables = "#{tables}".includes('car')
     div#mainContent
         div(style="margin:1em; padding:1em; height:10%;")
             h2 Database Schema Reference
@@ -18,7 +16,4 @@ block content
         </br></br></br></br>
         div#schemaTables
 
-            if (tables)
-                img(src="/images/carSchema.png" alt="Car Schema")
-            else
-                img(src="/images/wineSchema.png" alt="Wine Schema")
+            img(src="/images/wineSchema.png" alt="Wine Schema")
