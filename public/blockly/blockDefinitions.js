@@ -143,7 +143,7 @@ const blocksJson = [
 	},
 	{
 		'type': 'block_orderby',
-		'message0': 'ORDER BY %1 ASC %2',
+		'message0': 'ORDER BY %1 DESC %2',
 		'args0': [
 			{
 				'type': 'input_statement',
@@ -153,7 +153,7 @@ const blocksJson = [
 			{
 				'type': 'field_checkbox',
 				'name': 'NAME',
-				'checked': true
+				'checked': false
 			}
 		],
 		'previousStatement': [

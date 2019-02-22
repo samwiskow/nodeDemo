@@ -51,7 +51,7 @@ Blockly.JavaScript['block_orderby'] = function(block) {
 		i == 0? columns += filtered[i] : columns += ',' + filtered[i];
 	}
 	var code = ' ORDER BY ' + columns;
-	checkbox_name === true? code += ' ASC' : code += ' DESC';
+	checkbox_name === true? code += ' DESC' : code += '';
 	return code;
 };
 
