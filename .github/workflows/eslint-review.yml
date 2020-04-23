@@ -1,0 +1,17 @@
+name: reviewdog_eslint
+on: [pull_request]
+jobs:
+  eslint:
+    name: runner / eslint
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - name: eslint
+        uses: reviewdog/action-eslint@v1
+        with:
+          github_token: ${{ secrets.github_token }}
+          # Report level for reviewdog [info,warning,error]
+          level: error # optional, default is error
+          # Reporter of reviewdog command [github-pr-check,github-pr-review]:  
+          reporter: github-pr-review # Change reporter.
+          eslint_flags: .  # optional, default is .
